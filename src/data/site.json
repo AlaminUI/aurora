@@ -1,0 +1,26 @@
+{
+  "brandName": "Aurora",
+  "logoAccent": "A",
+  "tagline": "Creative Digital Agency",
+  "phone": "000-000-0000",
+  "phoneHref": "tel:0000000000",
+  "email": "example@email.com",
+  "address": "123 Example St. City, ST 22222",
+  "hours": "Mon-Fri 8AM - 5PM",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "About Us", "href": "/about" },
+    { "label": "Our Services", "href": "/services" },
+    { "label": "Service Areas", "href": "/service-areas" },
+    { "label": "Reviews", "href": "/reviews" },
+    { "label": "Contact Us", "href": "/contact" },
+    { "label": "Request A Quote", "href": "/contact", "cta": true }
+  ],
+  "socials": [
+    { "label": "Facebook", "href": "#" },
+    { "label": "Instagram", "href": "#" },
+    { "label": "Twitter", "href": "#" },
+    { "label": "YouTube", "href": "#" }
+  ],
+  "footerNote": "© Aurora, LLC. All Rights Reserved."
+}

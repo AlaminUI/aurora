@@ -1,0 +1,27 @@
+---
+import AuroraNative from '../layouts/AuroraNative.astro';
+import site from '../data/site.json';
+---
+<AuroraNative title="Our Services" description="Our services">
+<div class="page-header">
+  <div class="container text-center">
+    <h2>Our Services</h2>
+    <div class="breadcrumb"><a href="/">Home</a> / Services</div>
+  </div>
+</div>
+<div class="services-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="section-title">
+                <h2>our services</h2>
+                <p>Same Aurora services grid — editable section.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6"><div class="single-service effect2"><i class="icon icon-bike"></i><h4>Automobile Locksmith</h4><p>Car lockouts, keys, remotes in every city. Phone {site.phone}.</p></div></div>
+            <div class="col-md-4 col-sm-6"><div class="single-service effect2"><i class="icon icon-anchor"></i><h4>Residential Locksmith</h4><p>House lockouts, rekeying, duplicates. Email {site.email}.</p></div></div>
+            <div class="col-md-4 col-sm-6"><div class="single-service effect2"><i class="icon icon-circle-compass"></i><h4>Commercial Locksmith</h4><p>Offices and warehouses. {site.address}.</p></div></div>
+        </div>
+    </div>
+</div>
+</AuroraNative>

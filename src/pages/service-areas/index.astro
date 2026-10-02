@@ -1,0 +1,34 @@
+---
+import AuroraNative from '../../layouts/AuroraNative.astro';
+import citiesData from '../../data/cities.json';
+const cities = citiesData.cities;
+---
+<AuroraNative title="Service Areas" description="All service areas">
+<div class="page-header">
+  <div class="container text-center">
+    <h2>Service Areas</h2>
+    <div class="breadcrumb"><a href="/">Home</a> / Service Areas</div>
+  </div>
+</div>
+<div class="services-area section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="section-title">
+        <h2>Service Areas</h2>
+        <p>One link per city — each page uses the same Aurora header/footer.</p>
+      </div>
+    </div>
+    <div class="row">
+      {cities.map((c) => (
+        <div class="col-md-4 col-sm-6">
+          <div class="single-service effect2">
+            <h4>{c.city} Locksmith</h4>
+            <p>{c.city}, {c.state} {c.zip} — {c.phone}</p>
+            <p><a href={`/service-areas/${c.slug}`}>View {c.city} page</a></p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+</AuroraNative>

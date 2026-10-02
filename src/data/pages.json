@@ -1,0 +1,31 @@
+{
+  "home": {
+    "heroEyebrow": "Welcome to Aurora",
+    "heroTitle": "We Are Creative",
+    "heroTitleAccent": "Creative",
+    "heroText": "We build fast, SEO-friendly websites for local businesses. One template, 1,000+ city pages, same header and footer everywhere.",
+    "heroPrimaryCta": { "label": "Learn More", "href": "/about" },
+    "heroSecondaryCta": { "label": "Contact Us", "href": "/contact" },
+    "aboutTitle": "We are Creative Digital Agency",
+    "aboutText": "Edit this text in src/data/pages.json. This is your Aurora about block converted to Astro. Add why-choose-us items below without touching layout code.",
+    "whyChooseUs": [
+      { "title": "High Quality Services", "text": "Consistent header, footer, and city page structure across all locations." },
+      { "title": "Highly Experienced Team", "text": "One layout component powers home, about, services, and every city page." },
+      { "title": "Super Fast Delivery", "text": "Static HTML output means instant loads for local SEO." },
+      { "title": "Efficient Customer Care", "text": "Update phone, email, hours once in site.json and it reflects everywhere." }
+    ],
+    "ctaBanner": "Let us help you to grow your Online Business",
+    "servicesTitle": "our services",
+    "servicesText": "Edit services in src/data/pages.json. Each service renders in the 6-grid below."
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "We are Creative Digital Agency",
+    "body": "Edit this file to change About Us content. This page uses the same AuroraLayout header/footer as home and city pages. Add history, team, mission here.",
+    "points": ["Locally owned and operated", "Fast response times", "Residential + commercial + emergency service"]
+  },
+  "servicesPage": {
+    "title": "Our Services",
+    "body": "Edit this file to change Services page content. Link each service to relevant city pages for internal SEO."
+  }
+}

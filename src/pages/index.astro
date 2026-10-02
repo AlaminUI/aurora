@@ -1,0 +1,347 @@
+---
+import AuroraNative from '../layouts/AuroraNative.astro';
+import site from '../data/site.json';
+import pages from '../data/pages.json';
+const home = pages.home;
+const services = [
+  { icon: 'icon icon-aperture', title: 'UI/UX Design', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+  { icon: 'icon icon-bike', title: 'Web Design', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+  { icon: 'icon icon-flag', title: 'Web Development', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+  { icon: 'icon icon-circle-compass', title: 'Graphics Design', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+  { icon: 'icon icon-anchor', title: 'SEO Marketing', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+  { icon: 'icon icon-paintbrush', title: 'Photography', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+];
+const works = [
+  { img: '/assets/img/portfolio/port-1.jpg', cls: 'design photography' },
+  { img: '/assets/img/portfolio/port-2.jpg', cls: 'design' },
+  { img: '/assets/img/portfolio/port-4.jpg', cls: 'photography' },
+  { img: '/assets/img/portfolio/port-3.jpg', cls: 'web' },
+  { img: '/assets/img/portfolio/port-5.jpg', cls: 'web packaging' },
+  { img: '/assets/img/portfolio/port-6.jpg', cls: 'branding video packaging' },
+];
+const reviews = [
+  { img: '/assets/img/testimonial-1.jpg', name: 'Alex Smith', role: 'Photographer' },
+  { img: '/assets/img/testimonial-2.jpg', name: 'Nina Gomes', role: 'Interior Designer' },
+  { img: '/assets/img/testimonial-3.jpg', name: 'David Wood', role: 'Architect' },
+  { img: '/assets/img/testimonial-2.jpg', name: 'Alexa Moore', role: 'Beautician' },
+];
+---
+<AuroraNative title="Aurora" description={home.heroText}>
+<div id="home" class="slider-area">
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background:url(/assets/img/banner/banner1.jpg)"></div>
+    <div class="hero-slide" style="background:url(/assets/img/banner/banner2.jpg)"></div>
+    <div class="hero-slide" style="background:url(/assets/img/banner/banner3.jpg)"></div>
+  </div>
+  <div class="slider-middle-text">
+    <div class="container">
+      <div class="banner-text-area">
+        <h1 class="banner-text">We Are <span>{home.heroTitleAccent}</span></h1>
+        <p class="welcome-des">{home.heroText}</p>
+        <div class="slide-btn">
+          <a class="active" href="/about">Learn More</a>
+          <a href="/contact">Contact Us</a>
+        </div>
+        <div class="mouse-icon hidden-sm hidden-xs">
+          <div class="wheel"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="about" class="about-area section-padding">
+  <div class="container">
+    <div class="about-top reveal">
+      <h3>{home.heroEyebrow}</h3>
+      <h2>{home.aboutTitle}</h2>
+      <p>{home.aboutText}</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6"><img src="/assets/img/about.jpg" alt="about" loading="lazy" /></div>
+      <div class="col-md-6">
+        <h4 class="classic-title"><span>Why Choose Us</span></h4>
+        {home.whyChooseUs.map((item, i) => (
+          <div class={`acc${i === 0 ? ' open' : ''}`}>
+            <button type="button">{item.title} <span>◈</span></button>
+            <div class="acc-body">{item.text}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="call-to-action" style="background:url(/assets/img/call-to.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10"><h2 class="call-to-action-content">{home.ctaBanner}</h2></div>
+      <div class="col-lg-2"><a href="/contact" class="call-btn">Contact Us</a></div>
+    </div>
+  </div>
+</div>
+
+<div id="services" class="services-area section-padding">
+  <div class="container">
+    <div class="section-title reveal"><h2>{home.servicesTitle}</h2><p>{home.servicesText}</p></div>
+    <div class="row">
+      {services.map((s) => (
+        <div class="col-md-4"><div class="single-service effect2"><i class={s.icon}></i><h4>{s.title}</h4><p>{s.text}</p></div></div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<div class="award-area section-padding" style="background:url(/assets/img/award-bg.jpg)">
+  <div class="container">
+    <div class="single-award reveal">
+      <h3>Let's Do something awesome together</h3>
+      <h2>We are the best in business consultancy</h2>
+      <a href="/contact">Contact us</a>
+    </div>
+  </div>
+</div>
+
+<div id="portfolio" class="portfolio-area section-padding">
+  <div class="container">
+    <div class="section-title reveal"><h2>our works</h2><p>Same filter behavior, vanilla JS — no Isotope.</p></div>
+    <ul class="port-nav-list">
+      <li><a class="img-filter active" data-filter="*">All</a></li>
+      <li><a class="img-filter" data-filter=".design">Brading</a></li>
+      <li><a class="img-filter" data-filter=".web">Creative</a></li>
+      <li><a class="img-filter" data-filter=".packaging">Design</a></li>
+      <li><a class="img-filter" data-filter=".video">Photography</a></li>
+    </ul>
+    <div class="port-items">
+      {works.map((w) => (
+        <div class={`single-port ${w.cls}`}>
+          <div class="project-item">
+            <a href={w.img} class="zoom1"><img src={w.img} alt="portfolio" loading="lazy" />
+              <div class="overlay"><div class="overlay-inner"><h4>Creative Work</h4><p>Brand, Design</p></div></div>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<div id="testimonial" class="testimonial-area section-padding">
+  <div class="container">
+    <div class="section-title reveal"><h2>Clients Says</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, dolor dolore expedita fugiat laboriosam laudantium nesciunt nobis recusandae sit sunt.</p></div>
+    <div class="testi-slider">
+      <div class="testi-track">
+        {reviews.map((r) => (
+          <div class="single-test">
+            <div class="test-img"><img src={r.img} alt="testimonial image" loading="lazy" /></div>
+            <div class="testi-text">
+              <h3 class="reviewer-name">{r.name} <small class="reviewer-deg">{r.role}</small></h3>
+              <p class="reviewer-com">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="testi-dots"></div>
+    </div>
+  </div>
+</div>
+
+<div class="team-area section-padding">
+  <div class="container">
+    <div class="section-title reveal"><h2>our Team</h2><p>Same 3-column team grid.</p></div>
+    <div class="row">
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="team-boxes">
+          <div class="team-thumb overlay-image view-overlay">
+            <img src="/assets/img/team-member-1.jpeg" alt="team image" loading="lazy" />
+            <div class="clear"></div>
+            <div class="mask team_quote">
+              <div class="port-zoom-link">
+                <p><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></p>
+              </div>
+            </div>
+          </div>
+          <div class="team-info"><h2>Jane Doe</h2><p>Company Owner</p></div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="team-boxes">
+          <div class="team-thumb overlay-image view-overlay">
+            <img src="/assets/img/team-member-2.jpeg" alt="team image" loading="lazy" />
+            <div class="clear"></div>
+            <div class="mask team_quote">
+              <div class="port-zoom-link">
+                <p><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></p>
+              </div>
+            </div>
+          </div>
+          <div class="team-info"><h2>Julia Doe</h2><p>General Manager</p></div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="team-boxes">
+          <div class="team-thumb overlay-image view-overlay">
+            <img src="/assets/img/team-member-3.jpeg" alt="team image" loading="lazy" />
+            <div class="clear"></div>
+            <div class="mask team_quote">
+              <div class="port-zoom-link">
+                <p><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></p>
+              </div>
+            </div>
+          </div>
+          <div class="team-info"><h2>Nancy Doe</h2><p>Head Of Business</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="statistic-area" style="background:url(/assets/img/statistic-bg.jpg)">
+  <div class="sts-overlay section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="single-count count-one sm-mb-40 xs-mb-30">
+            <i class="icon icon-piechart"></i>
+            <h2 class="count">1255</h2>
+            <p>Projects Done</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="single-count count-two sm-mb-40 xs-mb-30">
+            <i class="icon icon-genius"></i>
+            <h2 class="count">125</h2>
+            <p>Happy Clients</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="single-count count-three sm-mb-40 xs-mb-30">
+            <i class="icon icon-trophy"></i>
+            <h2 class="count">251</h2>
+            <p>Business Awards</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="single-count count-four">
+            <i class="icon icon-puzzle"></i>
+            <h2 class="count">175</h2>
+            <p>Business Partners</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="pricing" class="pricing-area section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="section-title"><h2>Our Pricing</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, dolor dolore expedita fugiat laboriosam laudantium nesciunt nobis recusandae sit sunt.</p></div>
+    </div>
+    <div class="row db-padding-btm db-attached">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+          <div class="db-pricing-eleven db-bk-color-one">
+            <div class="price"><sup>$</sup>25 <small>Per Month</small></div>
+            <div class="type">Basic</div>
+            <ul><li>2GB Disk Space</li><li>512 MB Memory</li><li>5 Email Address</li><li>10 Subdomains</li><li>15 Domains</li><li>Unlimited Support</li></ul>
+            <div class="pricing-footer"><a href="#" class="btn db-button-color-square btn-lg">BOOK ORDER</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+          <div class="db-pricing-eleven db-bk-color-two popular">
+            <div class="price"><sup>$</sup>65 <small>Per Month</small></div>
+            <div class="type">Standard</div>
+            <ul><li>2GB Disk Space</li><li>512 MB Memory</li><li>5 Email Address</li><li>10 Subdomains</li><li>15 Domains</li><li>Unlimited Support</li></ul>
+            <div class="pricing-footer"><a href="#" class="btn db-button-color-square btn-lg">BOOK ORDER</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="db-wrapper">
+          <div class="db-pricing-eleven db-bk-color-three">
+            <div class="price"><sup>$</sup>95 <small>Per Month</small></div>
+            <div class="type">Business</div>
+            <ul><li>2GB Disk Space</li><li>512 MB Memory</li><li>5 Email Address</li><li>10 Subdomains</li><li>15 Domains</li><li>Unlimited Support</li></ul>
+            <div class="pricing-footer"><a href="#" class="btn db-button-color-square btn-lg">ORDER NOW</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="client-area section-padding" style="background:url(/assets/img/clients-bg.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="section-title"><h2>Our Clients</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, dolor dolore expedita fugiat laboriosam laudantium nesciunt nobis recusandae sit sunt.</p></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-3 col-sm-6"><div class="single-client text-center xs-mb-30 sm-mb-30"><img src="/assets/img/clients/clients-1.png" alt="client image" loading="lazy" /></div></div>
+      <div class="col-xs-12 col-md-3 col-sm-6"><div class="single-client text-center xs-mb-30 sm-mb-30"><img src="/assets/img/clients/clients-2.png" alt="client image" loading="lazy" /></div></div>
+      <div class="col-xs-12 col-md-3 col-sm-6"><div class="single-client text-center xs-mb-30"><img src="/assets/img/clients/clients-3.png" alt="client image" loading="lazy" /></div></div>
+      <div class="col-xs-12 col-md-3 col-sm-6"><div class="single-client text-center"><img src="/assets/img/clients/clients-4.png" alt="client image" loading="lazy" /></div></div>
+    </div>
+  </div>
+</div>
+
+<div id="blog" class="blog-area section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="section-title"><h2>Our Blog</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, dolor dolore expedita fugiat laboriosam laudantium nesciunt nobis recusandae sit sunt.</p></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <div class="single-blogs">
+          <div class="blogs-img"><a href="#"><img alt="blog image" src="/assets/img/blog1.jpeg" loading="lazy" /></a></div>
+          <div class="blogs-header"><h2 class="blogs-title"><a href="#">CSS3 Animation Tutorial</a></h2><div class="posts-meta">By&nbsp;<a href="#">Alex Doe</a>&nbsp;| 28 December | 2 comments</div></div>
+          <div class="blogs-text"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p></div>
+          <div class="blog-btn"><a class="more-link" href="#">Read more</a></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <div class="single-blogs">
+          <div class="blogs-img"><a href="#"><img alt="blog image" src="/assets/img/blog2.jpg" loading="lazy" /></a></div>
+          <div class="blogs-header"><h2 class="blogs-title"><a href="#">CSS3 Animation Tutorial</a></h2><div class="posts-meta">By&nbsp;<a href="#">Alex Doe</a>&nbsp;| 28 December | 2 comments</div></div>
+          <div class="blogs-text"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p></div>
+          <div class="blog-btn"><a class="more-link" href="#">Read more</a></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <div class="single-blogs">
+          <div class="blogs-img"><a href="#"><img alt="blog image" src="/assets/img/blog3.jpeg" loading="lazy" /></a></div>
+          <div class="blogs-header"><h2 class="blogs-title"><a href="#">CSS3 Animation Tutorial</a></h2><div class="posts-meta">By&nbsp;<a href="#">Alex Doe</a>&nbsp;| 28 December | 2 comments</div></div>
+          <div class="blogs-text"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p></div>
+          <div class="blog-btn"><a class="more-link" href="#">Read more</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="contact" class="contact-area section-padding">
+  <div class="container">
+    <div class="section-title reveal"><h2>Contact Us</h2><p>Same contact info + form, info from site.json.</p></div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="single_contact_info"><h3>our Address</h3><h4>{site.address}</h4></div>
+        <div class="single_contact_info"><h3>Phone Number</h3><h4>{site.phone}</h4></div>
+        <div class="single_contact_info"><h3>Our Email</h3><h4>{site.email}</h4></div>
+        <div class="single_contact_info"><h3>Our Hours</h3><h4>{site.hours}</h4></div>
+      </div>
+      <div class="col-md-6">
+        <form id="contact-form" method="post" action="#">
+          <p><input class="form-control" placeholder="Enter your full name *" required /></p>
+          <p><input class="form-control" type="email" placeholder="Enter your email *" required /></p>
+          <p><textarea class="form-control" rows="4" placeholder="Your Message *"></textarea></p>
+          <p><button class="btn-send" type="submit">Send message</button></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</AuroraNative>

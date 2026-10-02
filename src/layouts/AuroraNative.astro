@@ -1,0 +1,95 @@
+---
+import site from '../data/site.json';
+import '../styles/aurora-native.css';
+const { title = 'Aurora', description = 'We build fast, SEO-friendly websites for local businesses.' } = Astro.props;
+
+// Construct Canonical URL dynamically
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://auroralocksmith.com');
+
+// Structured Data (JSON-LD) for LocalBusiness to help Google Maps / Local SEO
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": site.brandName,
+  "image": "https://auroralocksmith.com/assets/img/about.jpg",
+  "description": description,
+  "url": canonicalURL,
+  "telephone": site.phone,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": site.address
+  },
+  "openingHours": "Mo-Fr 08:00-17:00"
+};
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="/assets/img/about.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={canonicalURL} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content="/assets/img/about.jpg" />
+
+  <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/assets/css/line-icons.min.css" />
+  
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</head>
+<body>
+<header class="nav-area">
+  <div class="container nav-inner">
+    <a href="/" class="navbar-brand"><span>{site.logoAccent}</span>{site.brandName.slice(1)}</a>
+    <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/services">Our Services</a></li>
+      <li><a href="/service-areas">Service Areas</a></li>
+      <li><a href="/#testimonial">Reviews</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+      <li><a href="/contact">Request A Quote</a></li>
+    </ul>
+  </div>
+</header>
+
+<slot />
+
+<div class="footer">
+  <div class="container">
+    <div class="social-icons">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-youtube"></i></a>
+    </div>
+    <p>{site.footerNote} | {site.phone} | {site.email}</p>
+  </div>
+</div>
+
+<dialog id="lightbox"><img alt="preview" /></dialog>
+<script src="../scripts/aurora-native.js"></script>
+</body>
+</html>

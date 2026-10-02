@@ -1,0 +1,40 @@
+---
+import AuroraNative from '../layouts/AuroraNative.astro';
+import pages from '../data/pages.json';
+const about = pages.about;
+---
+<AuroraNative title="About Us" description={about.subtitle}>
+<div class="page-header">
+  <div class="container text-center">
+    <h2>About Us</h2>
+    <div class="breadcrumb"><a href="/">Home</a> / About Us</div>
+  </div>
+</div>
+<div id="about" class="about-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="about-top">
+                    <h3>{about.title}</h3>
+                    <h2>{about.subtitle}</h2>
+                    <p>{about.body}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="/assets/img/about.jpg" alt="about image" class="sm-mb-30" />
+            </div>
+            <div class="col-md-6">
+                <h4 class="classic-title"><span>Why Choose Us</span></h4>
+                {about.points.map((p, i) => (
+                  <div class={`acc${i === 0 ? ' open' : ''}`}>
+                    <button type="button">{p} <span>◈</span></button>
+                    <div class="acc-body">{p}</div>
+                  </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</div>
+</AuroraNative>

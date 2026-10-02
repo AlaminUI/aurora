@@ -1,0 +1,104 @@
+---
+import AuroraNative from '../../layouts/AuroraNative.astro';
+import tpl from '../../data/cityTemplate.json';
+import citiesData from '../../data/cities.json';
+import site from '../../data/site.json';
+const cities = citiesData.cities;
+
+export async function getStaticPaths() {
+  return citiesData.cities.map((c) => ({ params: { city: c.slug }, props: { city: c } }));
+}
+const { city } = Astro.props;
+const nearby = cities.filter((c) => c.slug !== city.slug).slice(0, 12);
+function t(str: string) {
+  return str.replaceAll('{{city}}', city.city).replaceAll('{{CityUpper}}', city.city.toUpperCase()).replaceAll('{{state}}', city.state).replaceAll('{{stateAbbr}}', city.stateAbbr).replaceAll('{{zip}}', city.zip).replaceAll('{{phone}}', city.phone).replaceAll('{{brand}}', site.brandName);
+}
+const title = `${city.city} Locksmiths | Locksmiths in ${city.city} | ${site.brandName}`;
+---
+<AuroraNative title={title} description={t(tpl.intro)}>
+<div class="page-header">
+  <div class="container text-center">
+    <h2>{t(tpl.h1)}</h2>
+    <div class="breadcrumb"><a href="/">Home</a> / <a href="/service-areas">Service Areas</a> / {city.city}</div>
+  </div>
+</div>
+<div class="about-area section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="about-top">
+          <h3><a href="/">Home</a> / <a href="/service-areas">Service Areas</a> / {city.city}</h3>
+          <h2>{t(tpl.h1)}</h2>
+          <p>{t(tpl.intro)} Call {city.phone}.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="classic-title"><span>{t(tpl.proTitle)}</span></h4>
+        <p>{t(tpl.proText)}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="services-area section-padding" style="padding-top:0">
+  <div class="container">
+    <div class="row">
+      <div class="section-title">
+        <h2>Services in {city.city}</h2>
+        <p>Auto, residential, commercial, emergency and mobile — all in {city.city}, {city.stateAbbr} {city.zip}.</p>
+      </div>
+    </div>
+    <div class="row">
+      {tpl.services.map((s, i) => (
+        <div class="col-md-4 col-sm-6">
+          <div class="single-service effect2">
+            <i class={`icon ${i===0?'icon-bike':i===1?'icon-anchor':'icon-circle-compass'}`}></i>
+            <h4>{s.title} — {city.city}</h4>
+            <p>{t(s.text)}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="row" style="margin-top:30px">
+      <div class="col-md-6">
+        <h4 class="classic-title"><span>{t(tpl.emergencyTitle)}</span></h4>
+        <p>{t(tpl.emergencyText)}</p>
+      </div>
+      <div class="col-md-6">
+        <h4 class="classic-title"><span>{t(tpl.mobileTitle)}</span></h4>
+        <p>{t(tpl.mobileText)}</p>
+      </div>
+    </div>
+    <div class="row" style="margin-top:20px">
+      <div class="col-md-12 text-center">
+        <a href="/contact" class="call-btn smooth-menu" style="display:inline-block">{t(tpl.ctaButton)}</a>
+      </div>
+    </div>
+    <div class="row" style="margin-top:30px">
+      <div class="col-md-12">
+        <h4 class="classic-title"><span>{t(tpl.faqTitle)}</span></h4>
+        {tpl.faqs.map((f) => (<p><strong>{t(f.q)}</strong><br />{t(f.a)}</p>))}
+      </div>
+    </div>
+    <div class="row" style="margin-top:20px">
+      <div class="col-md-12">
+        <h4 class="classic-title"><span>Nearby areas</span></h4>
+        <p>{nearby.map((n, i) => (<span><a href={`/service-areas/${n.slug}`}>{n.city}</a>{i < nearby.length-1 ? ', ' : ''}</span>))}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="call-to-action" style="background:url(/assets/img/call-to.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-md-9 col-xs-12 col-sm-8">
+                <h2 class="call-to-action-content">Need a {city.city} locksmith? Call {city.phone}</h2>
+            </div>
+            <div class="col-lg-2 col-md-3 col-xs-12 col-sm-4">
+                <a href="/contact" class="call-btn smooth-menu">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+</AuroraNative>

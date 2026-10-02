@@ -1,0 +1,49 @@
+---
+import AuroraNative from '../layouts/AuroraNative.astro';
+import site from '../data/site.json';
+---
+<AuroraNative title="Contact Us" description="Contact us">
+<div class="page-header">
+  <div class="container text-center">
+    <h2>Contact Us</h2>
+    <div class="breadcrumb"><a href="/">Home</a> / Contact Us</div>
+  </div>
+</div>
+<div id="contact" class="contact-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Same Aurora contact section — info from site.json.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md--6 col-sm-6">
+                <div class="main_contact_info xs-mb-30">
+                    <div class="row">
+                        <div class="contact_info_content padding-top-90 padding-bottom-60 p_l_r">
+                            <div class="col-sm-12"><div class="single_contact_info"><div class="single_info_text"><h3>our Address</h3><h4>{site.address}</h4></div></div></div>
+                            <div class="col-sm-12"><div class="single_contact_info"><div class="single_info_text"><h3>Phone Number</h3><h4>{site.phone}</h4></div></div></div>
+                            <div class="col-sm-12"><div class="single_contact_info"><div class="single_info_text"><h3>Our Email</h3><h4>{site.email}</h4></div></div></div>
+                            <div class="col-sm-12"><div class="single_contact_info"><div class="single_info_text"><h3>Our Hours</h3><h4>{site.hours}</h4></div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md--6 col-sm-6">
+                <div class="single_contant_left">
+                    <form id="contact-form" method="post" action="#">
+                        <div class="messages"></div>
+                        <div class="controls">
+                            <div class="row"><div class="col-md-12"><div class="form-group"><input id="form_name" type="text" name="name" class="form-control" placeholder="Enter your full name *" required="required" /><div class="help-block with-errors"></div></div></div></div>
+                            <div class="row"><div class="col-md-12"><div class="form-group"><input id="form_email" type="email" name="email" class="form-control" placeholder="Enter your email *" required="required" /><div class="help-block with-errors"></div></div></div></div>
+                            <div class="row"><div class="col-md-12"><div class="form-group"><textarea id="form_message" name="message" class="form-control" placeholder="Your Message *" rows="4" required="required"></textarea><div class="help-block with-errors"></div></div></div></div>
+                            <div class="row"><div class="col-md-12"><button class="btn btn-send" value="">Send message</button></div></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</AuroraNative>

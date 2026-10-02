@@ -1,0 +1,12 @@
+{
+  "cities": [
+    { "slug": "overland-park", "city": "Overland Park", "state": "Kansas", "stateAbbr": "KS", "zip": "66204", "phone": "816-971-2029" },
+    { "slug": "olathe", "city": "Olathe", "state": "Kansas", "stateAbbr": "KS", "zip": "66061", "phone": "816-971-2029" },
+    { "slug": "lenexa", "city": "Lenexa", "state": "Kansas", "stateAbbr": "KS", "zip": "66215", "phone": "816-971-2029" },
+    { "slug": "leawood", "city": "Leawood", "state": "Kansas", "stateAbbr": "KS", "zip": "66206", "phone": "816-971-2029" },
+    { "slug": "liberty", "city": "Liberty", "state": "Missouri", "stateAbbr": "MO", "zip": "64068", "phone": "816-971-2029" },
+    { "slug": "shawnee", "city": "Shawnee", "state": "Kansas", "stateAbbr": "KS", "zip": "66203", "phone": "816-971-2029" },
+    { "slug": "gardner", "city": "Gardner", "state": "Kansas", "stateAbbr": "KS", "zip": "66030", "phone": "816-971-2029" },
+    { "slug": "lee-summit", "city": "Lee Summit", "state": "Missouri", "stateAbbr": "MO", "zip": "64063", "phone": "816-971-2029" }
+  ]
+}

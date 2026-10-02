@@ -1,0 +1,22 @@
+{
+  "_comment": "MASTER CITY TEMPLATE — edit once here, rebuild, ALL city pages update. Use tokens: {{city}} {{CityUpper}} {{state}} {{stateAbbr}} {{zip}} {{phone}} {{brand}}",
+  "h1": "{{CityUpper}} LOCKSMITHS | LOCKSMITHS IN {{CityUpper}} | {{brand}}",
+  "intro": "Locally owned {{city}} locksmiths serving {{city}}, {{state}} {{zip}} and surrounding areas. Call {{phone}} for fast service.",
+  "proTitle": "Professional {{city}} Locksmith",
+  "proText": "Don't hire a random locksmith in {{city}}. Trust a local {{city}} locksmith for home and business — lockouts, key cutting, lockpicking, rekeying, transponder keys and more in {{city}}, {{stateAbbr}}.",
+  "services": [
+    { "title": "Automobile Locksmith", "text": "Car lockouts, car keys and remotes, ignition keys in {{city}}." },
+    { "title": "Residential Locksmith", "text": "House lockouts, duplicate keys, mailbox locks anywhere in {{city}}." },
+    { "title": "Commercial Locksmith", "text": "Offices, retail, warehouses and commercial buildings in {{city}}." }
+  ],
+  "emergencyTitle": "Emergency Locksmith in {{city}}",
+  "emergencyText": "House, apartment, or car lockout emergency in {{city}}? Rapid response, on time, anywhere in {{zip}}.",
+  "mobileTitle": "Mobile Locksmith in {{city}}",
+  "mobileText": "Mobile service is our specialty — stuck out of your car in {{city}}? Call {{phone}}.",
+  "ctaButton": "Request Service in {{city}}",
+  "faqTitle": "{{city}} FAQs",
+  "faqs": [
+    { "q": "Do you serve {{city}} {{zip}}?", "a": "Yes, plus nearby areas in {{state}}." },
+    { "q": "What is your {{city}} phone?", "a": "{{phone}} — fast local response." }
+  ]
+}
