@@ -5,13 +5,13 @@ import compress from '@playform/compress';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://auroralocksmith.com', // Replace with the actual live domain
+  site: 'https://template-aurora.netlify.app', // Replace with the actual live domain
   integrations: [
     sitemap(),
     compress({
       CSS: true,
       HTML: true,
-      Image: false, // We'll keep Image false since we use native assets right now, avoiding long builds
+      Image: true,
       JavaScript: true,
       SVG: true,
     })

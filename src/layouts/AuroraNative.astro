@@ -4,14 +4,14 @@ import '../styles/aurora-native.css';
 const { title = 'Aurora', description = 'We build fast, SEO-friendly websites for local businesses.' } = Astro.props;
 
 // Construct Canonical URL dynamically
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://auroralocksmith.com');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://template-aurora.netlify.app');
 
 // Structured Data (JSON-LD) for LocalBusiness to help Google Maps / Local SEO
 const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": site.brandName,
-  "image": "https://auroralocksmith.com/assets/img/about.jpg",
+  "image": "https://template-aurora.netlify.app/assets/img/about.webp",
   "description": description,
   "url": canonicalURL,
   "telephone": site.phone,
@@ -39,14 +39,14 @@ const schema = {
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content="/assets/img/about.jpg" />
+  <meta property="og:image" content="/assets/img/about.webp" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content={canonicalURL} />
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
-  <meta property="twitter:image" content="/assets/img/about.jpg" />
+  <meta property="twitter:image" content="/assets/img/about.webp" />
 
   <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
